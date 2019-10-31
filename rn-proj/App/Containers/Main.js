@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-// import '../I18n/I18n'
+import '../I18n/I18n'
 import RootContainer from './RootContainer'
 import createStore from '@Redux'
 

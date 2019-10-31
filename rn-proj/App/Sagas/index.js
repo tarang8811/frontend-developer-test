@@ -1,5 +1,5 @@
 import { all, fork } from 'redux-saga/effects'
-// import userSaga from './UserSagas'
+import UserSaga from './UserSagas'
 import API from '@Services/Api'
 
 /* ------------- API ------------- */
@@ -10,6 +10,6 @@ const api = API.create()
 
 export default function* root() {
   yield all([
-    //fork(userSaga, api)
+    fork(UserSaga, api)
   ])
 }

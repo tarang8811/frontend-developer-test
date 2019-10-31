@@ -1,1 +1,7 @@
-{}
+{
+"search": "I will search this",
+"chatScreen": "Welcome to chat screen",
+"premiumScreen": "Welcome to premium screen",
+"settingsScreen": "Welcome to setting screen",
+"networkError": "There was an error fetching the data. Please try again"
+}

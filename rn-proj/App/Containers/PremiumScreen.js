@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import I18n from '@I18n'
 
 export default class PremiumScreen extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>Open up Premium.js to start working on your app!</Text>
+        <Text>{I18n.t("premiumScreen")}</Text>
       </View>
     )
   }

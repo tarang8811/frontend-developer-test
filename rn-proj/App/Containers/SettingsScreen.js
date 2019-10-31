@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import I18n from '@I18n'
 
 export default class SettingsScreen extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <Text>Open up Settings.js to start working on your app!</Text>
+        <Text>{I18n.t("settingsScreen")}</Text>
       </View>
     )
   }

@@ -1,12 +1,12 @@
 // @flow
 
-import RNLanguages from 'react-native-languages'
 import i18n from 'i18n-js'
+import * as Localization from 'expo-localization';
 
 // Enable fallbacks if you want `en-US` and `en-GB` to fallback to `en`
 i18n.fallbacks = true
 
-i18n.locale = RNLanguages.language
+i18n.locale = Localization.locale;
 // English language is the main language for fall back:
 i18n.translations = {
   en: require('./languages/english.json')

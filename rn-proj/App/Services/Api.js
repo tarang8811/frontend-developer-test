@@ -1,18 +1,22 @@
 import apisauce from 'apisauce'
 
+import getEnvVars from '../../environment';
+
+const { apiUrl, sessionToken } = getEnvVars();
+
 export default {
-  create: (baseURL = "my url") => {
+  create: (baseURL = apiUrl) => {
     const api = apisauce.create({
       baseURL: baseURL,
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer sadf`
+        'session-token': sessionToken
       },
-      timeout: 100000
+      timeout: 10 * 1000 // timeout of 10s
     })
 
     return {
-      getUsers: params => api.get('users', params),
+      getUsers: _ => api.get('users'),
     }
   }
 }

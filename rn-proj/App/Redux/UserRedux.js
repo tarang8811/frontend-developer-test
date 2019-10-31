@@ -9,7 +9,7 @@ const { Types, Creators } = createActions({
   usersRequestFailure: ['error'],
 })
 
-export const AuthTypes = Types
+export const UserTypes = Types
 export default Creators
 
 /* ------------- Initial State ------------- */
