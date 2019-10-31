@@ -4339,6 +4339,11 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
+react-native-animated-tabs@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/react-native-animated-tabs/-/react-native-animated-tabs-1.3.3.tgz#1ca012581816c1c32fc332d008a04bddc1f3c08d"
+  integrity sha512-6fpZZ3CSzXZvsYqmeZME09g81r8cWxHmEnXZfzWV7mFM+5gh5AtCMtSsKytsA9NHh2w2myuU07XJC2100Wy40A==
+
 react-native-branch@~3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-3.0.1.tgz#5b07b61cbd290168cd3c3662e017ebe0f356d2ca"

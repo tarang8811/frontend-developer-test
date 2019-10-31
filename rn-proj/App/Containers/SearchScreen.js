@@ -1,41 +1,63 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { StyleSheet, Text, View, Dimensions, SafeAreaView } from 'react-native'
 import I18n from '@I18n'
 import { connect } from 'react-redux'
 import UserActions from '@Redux/UserRedux'
+import AnimatedTabs from 'react-native-animated-tabs'
+
+import styles from './UpgradeViewStyle'
+import Button from '@Components/Button'
+import Card from './Card'
+
+const { width } = Dimensions.get('window')
+
+const PANEL_WIDTH = width - 56
 
 class SearchScreen extends Component {
-
   componentDidMount() {
     this.props.getUsers()
   }
 
-  render () {
+  render() {
     return (
-      <View style={styles.container}>
-        <Text>{I18n.t('search')}</Text>
-      </View>
+      <SafeAreaView style={styles.flex}>
+        <View style={styles.buttonView}>
+          <Button
+            text={'Location'}
+            onPress={() => {}}
+            style={styles.button}
+            textStyle={styles.locationButtonText}
+          />
+          <Button
+            text={'Filters'}
+            onPress={() => {}}
+            style={styles.button}
+            textStyle={styles.filterButtonText}
+          />
+        </View>
+        <AnimatedTabs
+          panelStyle={styles.mainContainer}
+          panelWidth={PANEL_WIDTH}
+          style={styles.tabStyle}
+        >
+          {this.props.userData.map(user => (
+            <Card key={user.id} {...user} />
+          ))}
+        </AnimatedTabs>
+      </SafeAreaView>
     )
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   userData: state.users.data
 })
 
 const mapDispatchToProps = {
-  getUsers: UserActions.usersRequest,
+  getUsers: UserActions.usersRequest
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchScreen)
-
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchScreen)

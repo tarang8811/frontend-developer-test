@@ -13,9 +13,10 @@ const colors = {
   darkGray: '#858585',
   gray67: '#676767',
   lightGray: '#e9e9e9',
+  lighterGray: '#f7f7f7',
   lightGrayAlpha: '#e9e9e980',
   lightWhite: '#fafafa',
-  black: '#3E3E3E',
+  black: '#363636',
   pitchBlack: '#000000',
   blackAlpha: '#0008',
   lightBlack: '#464646',
@@ -139,33 +140,9 @@ const colors = {
   upgradeTickGreen: '#4FC7B8',
   upgradeCrossRed: '#FD8082',
   searchBarIconGray: '#C7C7C7',
-  mmcColors: {
-    black: '#464646',
-    green: '#32cd32',
-    blue: '#4a90e2',
-    grey: '#acacac',
-    orange: '#ff6f1b',
-    pink: '#ff6f9c',
-    purple: '#b549a2',
-    red: '#ff5d6e',
-    teal: '#008080',
-    yellow: '#ffa700',
-    'neon red': '#ff0000',
-    'neon yellow': '#f3f315',
-    'neon green': '#aeff14',
-    'neon blue': '#4d4dff',
-    'neon purple': '#ea6fff',
-    lavender: '#e6e6fa',
-    violet: '#951ce4',
-    turquoise: '#40e0d0',
-    peach: '#ffdab9',
-    navy: '#000080',
-    olive: '#556b2f',
-    cyan: '#00ffff',
-    gold: '#daa520',
-    maroon: '#aa133f',
-    brown: '#cb0303'
-  }
+  // new colors
+  pink: '#eb5c95',
+  lightBlue: '#8e959c'
 }
 
 export default colors
