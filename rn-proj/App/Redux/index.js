@@ -5,6 +5,7 @@ import configureStore from './CreateStore'
 /* ------------- Assemble The Reducers ------------- */
 export const reducers = combineReducers({
   users: require('./UserRedux').reducer,
+  ui: require('./UIRedux').reducer
 })
 
 export const { store } = configureStore(reducers, rootSaga)

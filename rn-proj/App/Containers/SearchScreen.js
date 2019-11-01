@@ -12,10 +12,11 @@ import { connect } from 'react-redux'
 import UserActions from '@Redux/UserRedux'
 import AnimatedTabs from 'react-native-animated-tabs'
 
-import styles from './UpgradeViewStyle'
+import styles from './SearchScreenStyle'
 import Button from '@Components/Button/Button'
 import Card from './Card'
 import UserInfoScreen from './UserInfoScreen'
+import { Colors } from '@Themes'
 
 const { width } = Dimensions.get('window')
 
@@ -119,12 +120,16 @@ class SearchScreen extends Component {
             text={'Location'}
             onPress={() => {}}
             style={styles.button}
+            gradientStyle={styles.gradientStyle}
+            colors={[Colors.gradientPink, Colors.gradientPurple]}
             textStyle={styles.locationButtonText}
           />
           <Button
             text={'Filters'}
             onPress={() => {}}
             style={styles.button}
+            gradientStyle={styles.gradientStyle}
+            colors={[Colors.gradientPink, Colors.gradientPurple]}
             textStyle={styles.filterButtonText}
           />
         </View>

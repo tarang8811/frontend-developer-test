@@ -13,7 +13,31 @@ import ScrollableImages from '@Components/ScrollableImages'
 import { Colors, Metrics } from '@Themes'
 import styles from './UserInfoScreenStyle'
 import Modal from '@Components/Modal'
-import SectionView from '@Components/SectionView'
+import GradientText from '@Components/GradientText'
+
+const TagsView = ({ header, data }) => {
+  if (!!data && !!data.length) {
+    return (
+      <View style={styles.desiresView}>
+        <Text style={styles.aboutViewHeader}>{header}</Text>
+        <ScrollView
+          horizontal
+          style={styles.desiresTextView}
+          showsHorizontalScrollIndicator={false}
+        >
+          {data.map(d => (
+            <GradientText
+              colors={[Colors.gradientPink, Colors.gradientPurple]}
+              label={d}
+              gradientStyle={styles.gradientStyle}
+            />
+          ))}
+        </ScrollView>
+      </View>
+    )
+  }
+  return null
+}
 
 class UserInfoScreen extends Component {
   state = {}
@@ -40,38 +64,8 @@ class UserInfoScreen extends Component {
                   <Text style={styles.aboutViewHeader}>About Me</Text>
                   <Text style={styles.aboutText}>{info.about}</Text>
                 </View>
-                {!!info.desires && !!info.desires.length && (
-                  <View style={styles.desiresView}>
-                    <Text style={styles.aboutViewHeader}>Desires</Text>
-                    <ScrollView
-                      horizontal
-                      style={styles.desiresTextView}
-                      showsHorizontalScrollIndicator={false}
-                    >
-                      {info.desires.map(d => (
-                        <Text key={d} style={styles.desiresText}>
-                          {d}
-                        </Text>
-                      ))}
-                    </ScrollView>
-                  </View>
-                )}
-                {!!info.interests && !!info.interests.length && (
-                  <View style={styles.desiresView}>
-                    <Text style={styles.aboutViewHeader}>Desires</Text>
-                    <ScrollView
-                      horizontal
-                      style={styles.desiresTextView}
-                      showsHorizontalScrollIndicator={false}
-                    >
-                      {info.interests.map(d => (
-                        <Text key={d} style={styles.desiresText}>
-                          {d}
-                        </Text>
-                      ))}
-                    </ScrollView>
-                  </View>
-                )}
+                <TagsView header="Desires" data={info.desires} />
+                <TagsView header="Interests" data={info.interests} />
               </View>
             </ScrollView>
             <View style={styles.buttonView}>

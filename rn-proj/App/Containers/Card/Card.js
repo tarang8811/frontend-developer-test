@@ -5,6 +5,7 @@ import styles from './CardStyles'
 import TapableImages from '@Components/TapableImages'
 import { Colors } from '@Themes'
 import { Ionicons, Entypo } from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 
 class Card extends Component {
   state = {
@@ -61,7 +62,10 @@ class Card extends Component {
         style={[styles.container, { opacity: this.state.viewOpacity }]}
       >
         <TapableImages images={photos} />
-        <View style={styles.sexualityTextView}>
+        <LinearGradient
+          colors={[Colors.gradientPink, Colors.gradientPurple]}
+          style={styles.sexualityTextView}
+        >
           <Ionicons
             name="ios-heart"
             onPress={() => {}}
@@ -70,12 +74,12 @@ class Card extends Component {
             style={styles.sexualityIcon}
           />
           <Text style={styles.sexualityText}>{info.sexuality}</Text>
-        </View>
+        </LinearGradient>
         <View style={styles.nameView}>
           <Text style={styles.nameText}>{`${info.name}, ${info.age}`}</Text>
         </View>
         <View style={styles.aboutView}>
-          <Text style={styles.aboutText}>{photos.length}</Text>
+          <Text style={styles.aboutText}>{info.about}</Text>
         </View>
         <View style={styles.buttonView}>
           <IconButton

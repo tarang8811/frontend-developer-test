@@ -18,10 +18,8 @@ export default StyleSheet.create({
     color: Colors.snow
   },
   button: {
-    width: 120,
-    height: 36,
-    backgroundColor: Colors.pink,
-    borderRadius: 20,
+    width: 100,
+    height: 34,
     borderWidth: 0,
     marginHorizontal: 16,
     marginTop: 20
@@ -34,5 +32,8 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 20
+  },
+  gradientStyle: {
+    borderRadius: 17
   }
 })

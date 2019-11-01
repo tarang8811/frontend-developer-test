@@ -35,7 +35,9 @@ const metrics = {
     medium: 40,
     large: 60,
     logo: 200
-  }
+  },
+  fixedBarWidth: 280,
+  barSpace: 10
 }
 
 export default metrics

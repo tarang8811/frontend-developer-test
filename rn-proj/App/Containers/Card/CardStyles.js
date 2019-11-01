@@ -22,10 +22,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.pink,
     paddingHorizontal: 20,
     paddingVertical: 6,
-    borderRadius: 25,
+    borderRadius: 16,
     alignSelf: 'center',
     width: 'auto',
-    marginVertical: 10,
+    marginTop: 16,
+    marginBottom: 10,
     flexDirection: 'row',
     alignItems: 'center'
   },

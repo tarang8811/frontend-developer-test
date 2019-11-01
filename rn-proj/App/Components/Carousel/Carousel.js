@@ -1,37 +1,29 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  Dimensions,
-  Animated
-} from 'react-native'
-
-const deviceWidth = Dimensions.get('window').width
-const FIXED_BAR_WIDTH = 280
-const BAR_SPACE = 10
+import { View, StyleSheet, Animated } from 'react-native'
+import { Metrics, Colors } from '@Themes'
 
 class Carousel extends Component {
   animVal = new Animated.Value(0)
   itemWidth = 0
 
+  constructor(props) {
+    super(props)
+    this.itemWidth =
+      Metrics.fixedBarWidth / this.props.images.length -
+      (this.props.images.length - 1) * Metrics.barSpace
+  }
+
   animate = index => {
     Animated.timing(this.animVal, {
-      toValue: index > 0 ? (this.itemWidth + BAR_SPACE) * index : 0,
+      toValue: index > 0 ? (this.itemWidth + Metrics.barSpace) * index : 0,
       delay: 0,
       duration: 200
     }).start()
   }
 
   render() {
-    this.itemWidth =
-      FIXED_BAR_WIDTH / this.props.images.length -
-      (this.props.images.length - 1) * BAR_SPACE
-
     if (this.props.images.length == 1) return null
-
     return (
       <View style={styles.barContainer}>
         {this.props.images.map((i, index) => {
@@ -42,7 +34,7 @@ class Carousel extends Component {
                 styles.track,
                 {
                   width: this.itemWidth,
-                  marginLeft: index === 0 ? 0 : BAR_SPACE
+                  marginLeft: index === 0 ? 0 : Metrics.barSpace
                 }
               ]}
             ></View>
@@ -62,7 +54,9 @@ class Carousel extends Component {
   }
 }
 
-Carousel.propTypes = {}
+Carousel.propTypes = {
+  images: PropTypes.array
+}
 
 export default Carousel
 
@@ -84,7 +78,7 @@ const styles = StyleSheet.create({
   },
   bar: {
     flex: 1,
-    backgroundColor: '#5294d6',
+    backgroundColor: Colors.gradientPurple,
     height: 2,
     position: 'absolute',
     left: 0,

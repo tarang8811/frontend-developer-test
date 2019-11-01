@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
 import AppNavigation from '@Navigation/AppNavigation'
+import AppLoader from '@Components/AppLoader'
 
 class RootContainer extends Component {
   render = () => (
     <View style={styles.applicationView}>
       <AppNavigation />
-      {/* {this.props.showSplashScreen && (
-        <SplashScreen onDone={this.props.hideSplashScreen} />
-      )} */}
+      <AppLoader />
     </View>
   )
 }
@@ -18,6 +17,5 @@ export default RootContainer
 const styles = StyleSheet.create({
   applicationView: {
     flex: 1
-  },
-});
-
+  }
+})

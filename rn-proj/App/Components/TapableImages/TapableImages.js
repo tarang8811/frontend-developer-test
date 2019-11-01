@@ -1,16 +1,18 @@
 import React, { Component } from 'React'
-import {
-  Image,
-  Text,
-  TouchableOpacity,
-  View,
-  ScrollView,
-  Button
-} from 'react-native'
+import { Image, TouchableOpacity, View } from 'react-native'
 import styles from './TapableImagesStyles'
 import Carousel from '@Components/Carousel'
+import PropTypes from 'prop-types'
 
 class TapableImages extends Component {
+  static defaultProps = {
+    images: []
+  }
+
+  static propTypes = {
+    images: PropTypes.array.isRequired
+  }
+
   state = { index: 0 }
   images = []
   cref = null

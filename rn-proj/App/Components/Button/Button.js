@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { TouchableOpacity, Text } from 'react-native'
 import { StyleSheet } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 
 export default class Button extends Component {
   static defaultProps = {
@@ -38,9 +39,14 @@ export default class Button extends Component {
         onPress={this.props.onPress}
         testID={this.props.testID}
       >
-        <Text style={[styles.buttonText, this.props.textStyle]}>
-          {this.getText()}
-        </Text>
+        <LinearGradient
+          colors={this.props.colors}
+          style={this.props.gradientStyle}
+        >
+          <Text style={[styles.buttonText, this.props.textStyle]}>
+            {this.getText()}
+          </Text>
+        </LinearGradient>
       </TouchableOpacity>
     )
   }
@@ -57,7 +63,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     textAlign: 'center',
-    fontSize: 14,
+    fontSize: 12,
     marginVertical: 10
   }
 })

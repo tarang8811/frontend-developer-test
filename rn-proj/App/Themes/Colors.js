@@ -143,7 +143,11 @@ const colors = {
   // new colors
   pink: '#eb5c95',
   lightBlue: '#8e959c',
-  yellow: '#e29a36'
+  yellow: '#e29a36',
+  gradientPink: '#ce5ea1',
+  gradientPurple: '#945ada',
+  gradientPurpleAlpha: '#945ada18',
+  loaderGray: 'f5f5f570'
 }
 
 export default colors

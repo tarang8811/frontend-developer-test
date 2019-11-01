@@ -1,36 +1,24 @@
-import React, { Component } from 'React'
-import {
-  Image,
-  Text,
-  TouchableOpacity,
-  View,
-  ScrollView,
-  Button
-} from 'react-native'
+import React from 'React'
+import { Image, ScrollView } from 'react-native'
 import styles from './ScrollableImagesStyles'
+import PropTypes from 'prop-types'
 
-class ScrollableImages extends Component {
-  render() {
-    return (
-      <ScrollView
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-      >
-        {this.props.images.map(i => (
-          <Image
-            style={styles.icon}
-            source={{
-              uri: i.url,
-              cache: 'force-cache'
-            }}
-            key={i.url}
-            resizeMode="cover"
-          />
-        ))}
-      </ScrollView>
-    )
-  }
+export default ScrollableImages = ({ images }) => (
+  <ScrollView horizontal pagingEnabled showsHorizontalScrollIndicator={false}>
+    {images.map(i => (
+      <Image
+        style={styles.icon}
+        source={{
+          uri: i.url,
+          cache: 'force-cache'
+        }}
+        key={i.url}
+        resizeMode="cover"
+      />
+    ))}
+  </ScrollView>
+)
+
+ScrollableImages.propTypes = {
+  images: PropTypes.array.isRequired
 }
-
-export default ScrollableImages

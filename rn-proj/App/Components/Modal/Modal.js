@@ -1,36 +1,21 @@
 import React, { Component } from 'react'
-import {
-  ScrollView,
-  StyleSheet,
-  Modal,
-  SafeAreaView,
-  Text,
-  View
-} from 'react-native'
+import { ScrollView, StyleSheet, Modal, SafeAreaView, View } from 'react-native'
 import PropTypes from 'prop-types'
-
-import IconButton from '@Components/Button/IconButton'
-import I18n from '@I18n'
 import { Colors, Metrics } from '@Themes'
 
 export default class DatingAppModal extends Component {
   static defaultProps = {
     animationType: 'slide',
     visible: false,
-    headerTitle: I18n.t('choose').toUpperCase(),
-    onClose: () => {},
     onRequestClose: () => {},
-    headerRight: <View />,
     contentContainerStyle: {}
   }
 
   static propTypes = {
     animationType: PropTypes.string,
-    headerTitle: PropTypes.string,
     visible: PropTypes.bool,
     scrollable: PropTypes.bool,
     content: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-    headerRight: PropTypes.object,
     onRequestClose: PropTypes.func,
     contentContainerStyle: PropTypes.object
   }
@@ -43,14 +28,6 @@ export default class DatingAppModal extends Component {
       onRequestClose={this.props.onRequestClose}
     >
       <SafeAreaView style={styles.viewContainer}>
-        {/* <IconButton
-          type="ent"
-          name="chevron-down"
-          onPress={this.props.onRequestClose}
-          style={styles.onClose}
-          size={36}
-          color={Colors.snow}
-        /> */}
         {this.props.scrollable ? (
           <ScrollView
             style={[styles.contentContainer, this.props.contentContainerStyle]}
