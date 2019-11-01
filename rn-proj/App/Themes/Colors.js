@@ -142,7 +142,8 @@ const colors = {
   searchBarIconGray: '#C7C7C7',
   // new colors
   pink: '#eb5c95',
-  lightBlue: '#8e959c'
+  lightBlue: '#8e959c',
+  yellow: '#e29a36'
 }
 
 export default colors
