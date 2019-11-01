@@ -1,2 +1,2 @@
-import TapableImages from './TapableImages'
-export default TapableImages
+import ScrollableImages from './ScrollableImages'
+export default ScrollableImages

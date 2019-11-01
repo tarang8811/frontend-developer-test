@@ -12,14 +12,19 @@ import styles from './ScrollableImagesStyles'
 class ScrollableImages extends Component {
   render() {
     return (
-      <ScrollView style={styles.scroll}>
+      <ScrollView
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+      >
         {this.props.images.map(i => (
           <Image
             style={styles.icon}
             source={{
-              uri: this.props.images[i].url,
+              uri: i.url,
               cache: 'force-cache'
             }}
+            key={i.url}
             resizeMode="cover"
           />
         ))}

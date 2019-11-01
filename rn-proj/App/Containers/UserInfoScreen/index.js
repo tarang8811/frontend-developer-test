@@ -1,2 +1,2 @@
-import UserInfo from './UserInfo'
-export default UserInfo
+import UserInfoScreen from './UserInfoScreen'
+export default UserInfoScreen

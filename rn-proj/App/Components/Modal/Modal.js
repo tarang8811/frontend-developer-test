@@ -43,20 +43,14 @@ export default class DatingAppModal extends Component {
       onRequestClose={this.props.onRequestClose}
     >
       <SafeAreaView style={styles.viewContainer}>
-        <View style={styles.headerWrap}>
-          <IconButton
-            type="material"
-            name="keyboard-arrow-left"
-            onPress={this.props.onRequestClose}
-            style={styles.onClose}
-            size={36}
-            color={Colors.lightBlack}
-          />
-          <Text style={styles.headerText}>
-            {this.props.headerTitle.toUpperCase()}
-          </Text>
-          {this.props.headerRight}
-        </View>
+        {/* <IconButton
+          type="ent"
+          name="chevron-down"
+          onPress={this.props.onRequestClose}
+          style={styles.onClose}
+          size={36}
+          color={Colors.snow}
+        /> */}
         {this.props.scrollable ? (
           <ScrollView
             style={[styles.contentContainer, this.props.contentContainerStyle]}

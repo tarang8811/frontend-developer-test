@@ -11,7 +11,7 @@ export default class Button extends Component {
   }
 
   static propTypes = {
-    style: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+    style: PropTypes.oneOfType([PropTypes.number, PropTypes.object]),
     textStyle: PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.array,

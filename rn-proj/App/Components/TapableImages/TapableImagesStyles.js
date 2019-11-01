@@ -15,5 +15,19 @@ export default StyleSheet.create({
   icon: {
     height: (2 * height) / 5,
     width: '100%'
+  },
+  prevStyle: {
+    position: 'absolute',
+    left: 0,
+    height: (2 * height) / 5,
+    zIndex: 10,
+    width: '50%'
+  },
+  nextStyle: {
+    position: 'absolute',
+    right: 0,
+    height: (2 * height) / 5,
+    zIndex: 10,
+    width: '50%'
   }
 })

@@ -55,7 +55,6 @@ class Card extends Component {
 
   render() {
     const { info, photos } = this.props
-
     return (
       <Animated.View
         key={info.name}
@@ -76,7 +75,7 @@ class Card extends Component {
           <Text style={styles.nameText}>{`${info.name}, ${info.age}`}</Text>
         </View>
         <View style={styles.aboutView}>
-          <Text style={styles.aboutText}>{info.about}</Text>
+          <Text style={styles.aboutText}>{photos.length}</Text>
         </View>
         <View style={styles.buttonView}>
           <IconButton
@@ -90,8 +89,8 @@ class Card extends Component {
           <IconButton
             type="ion"
             name="ios-information-circle-outline"
-            onPress={info}
-            style={this.onInfo}
+            onPress={this.props.onInfo}
+            style={styles.info}
             size={30}
             color={Colors.yellow}
           />

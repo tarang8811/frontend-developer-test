@@ -15,15 +15,17 @@ import AnimatedTabs from 'react-native-animated-tabs'
 import styles from './UpgradeViewStyle'
 import Button from '@Components/Button/Button'
 import Card from './Card'
-import UserInfoScreen from './UserInfoScreen/UserInfoScreen'
+import UserInfoScreen from './UserInfoScreen'
 
 const { width } = Dimensions.get('window')
 
 const PANEL_WIDTH = width - 56
 
 class SearchScreen extends Component {
-  state = { userData: [], activePanel: 0 }
-  tabRef = null
+  state = { userData: [], visible: false, currentUser: null }
+  activePanel = 0
+  cardsRef = {}
+  instantShowModal = true
 
   componentDidMount() {
     this.props.getUsers()
@@ -38,15 +40,27 @@ class SearchScreen extends Component {
     }
   }
 
-  showLikeAnimation = () => {}
+  closeModal = () => {
+    this.setState({ visible: false })
+  }
 
-  showDislikeAnimation = () => {}
+  animateLike = () => {
+    this.setState({ visible: false }, () => {
+      this.cardsRef[this.state.currentUser.id].animateLike()
+    })
+  }
+
+  animateDislike = () => {
+    this.setState({ visible: false }, () => {
+      this.cardsRef[this.state.currentUser.id].animateDislike()
+    })
+  }
 
   removeAndUpdateAnimation = (user, index) => {
+    this.activePanel = index
     this.setState(
       {
-        userData: this.state.userData.filter(d => d.id !== user.id),
-        activePanel: index
+        userData: this.state.userData.filter(d => d.id !== user.id)
       },
       () => {
         var CustomLayoutSpring = {
@@ -74,7 +88,28 @@ class SearchScreen extends Component {
     this.removeAndUpdateAnimation(user, index)
   }
 
-  onInfo = user => () => {}
+  onInfo = user => () => {
+    if (this.instantShowModal) {
+      this.setState({ currentUser: user, visible: true })
+    } else {
+      setTimeout(() => {
+        this.setState({ currentUser: user, visible: true })
+      }, 500)
+    }
+  }
+
+  onAnimateFinish = () => {
+    setTimeout(() => {
+      this.instantShowModal = true
+    }, 300)
+    this.animationRunning = false
+  }
+
+  onAnimate = activePanel => {
+    this.activePanel = activePanel
+    this.instantShowModal = false
+    this.animationRunning = true
+  }
 
   render() {
     return (
@@ -94,23 +129,33 @@ class SearchScreen extends Component {
           />
         </View>
         <AnimatedTabs
-          ref={ref => (this.tabRef = ref)}
           panelStyle={styles.mainContainer}
           panelWidth={PANEL_WIDTH}
           style={styles.tabStyle}
-          activePanel={this.state.activePanel}
+          activePanel={this.activePanel}
+          onAnimate={this.onAnimate}
+          onAnimateFinish={this.onAnimateFinish}
         >
           {this.state.userData.map((user, index) => (
             <Card
+              ref={ref => (this.cardsRef[user.id] = ref)}
               key={user.id}
               {...user}
               onLike={this.onLike(user, index)}
               onDislike={this.onDislike(user, index)}
-              onInfo={this.onInfo(index)}
+              onInfo={this.onInfo(user)}
             />
           ))}
         </AnimatedTabs>
-        <UserInfoScreen />
+        {!!this.state.currentUser && (
+          <UserInfoScreen
+            {...this.state.currentUser}
+            animateLike={this.animateLike}
+            animateDislike={this.animateDislike}
+            closeModal={this.closeModal}
+            visible={this.state.visible}
+          />
+        )}
       </SafeAreaView>
     )
   }

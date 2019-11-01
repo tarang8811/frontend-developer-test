@@ -37,30 +37,19 @@ const styles = StyleSheet.create({
     color: Colors.snow
   },
   nameView: {
-    alignItems: 'center',
-    marginBottom: 10,
-    marginTop: 4
+    margin: 20
   },
   nameText: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
     color: Colors.black
-  },
-  aboutView: {
-    alignItems: 'center',
-    height: height / 20
-  },
-  aboutText: {
-    paddingHorizontal: 16,
-    color: Colors.lightBlue,
-    fontSize: 14
   },
   buttonView: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
     justifyContent: 'center',
-    height: height / 10
+    bottom: 40
   },
   info: {
     height: 60,
@@ -79,6 +68,43 @@ const styles = StyleSheet.create({
   },
   bigHeartIcon: {
     flex: 1
+  },
+  infoView: {
+    margin: 20,
+    height: 500
+  },
+  flex: {
+    flex: 1
+  },
+  aboutView: {
+    marginHorizontal: 20,
+    marginVertical: 8
+  },
+  aboutText: {
+    color: Colors.lightBlue,
+    fontSize: 14,
+    marginTop: 10
+  },
+  desiresText: {
+    backgroundColor: Colors.pink,
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+    color: Colors.snow,
+    alignSelf: 'flex-start',
+    overflow: 'hidden',
+    marginRight: 10
+  },
+  desiresView: {
+    marginHorizontal: 20,
+    marginVertical: 8,
+    height: 'auto',
+    flexWrap: 'wrap'
+  },
+  desiresTextView: {
+    flex: 1,
+    flexDirection: 'row',
+    marginTop: 10
   }
 })
 

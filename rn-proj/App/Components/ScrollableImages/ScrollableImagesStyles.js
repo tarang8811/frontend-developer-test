@@ -1,19 +1,16 @@
 import { StyleSheet, Dimensions } from 'react-native'
 import { Colors } from '@Themes/'
 
-const { height } = Dimensions.get('window')
+const { height, width } = Dimensions.get('window')
 
 export default StyleSheet.create({
   scroll: {
     height: (2 * height) / 5,
     width: '100%',
-    alignItems: 'center',
-    overflow: 'hidden',
-    borderTopLeftRadius: 12,
-    borderTopRightRadius: 12
+    overflow: 'scroll'
   },
   icon: {
     height: (2 * height) / 5,
-    width: '100%'
+    width: width
   }
 })
