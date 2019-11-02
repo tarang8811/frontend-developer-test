@@ -7,49 +7,38 @@ import { Colors } from '@Themes'
 import { Ionicons, Entypo } from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
 
+const getConfig = (toValue, delay, duration) => ({
+  toValue,
+  delay,
+  duration,
+  useNativeDriver: true
+})
+
 class Card extends Component {
-  state = {
-    viewOpacity: new Animated.Value(1),
-    heartIconOpacity: new Animated.Value(0),
-    crossIconOpacity: new Animated.Value(0)
-  }
+  viewOpacity = new Animated.Value(1)
+  heartIconOpacity = new Animated.Value(0)
+  crossIconOpacity = new Animated.Value(0)
 
   animateLike = () => {
-    Animated.timing(this.state.heartIconOpacity, {
-      toValue: 1,
-      delay: 200,
-      duration: 500
-    }).start(() => {
+    Animated.timing(this.heartIconOpacity, getConfig(1, 200, 500)).start(() => {
       this.onLike()
     })
   }
 
   animateDislike = () => {
-    Animated.timing(this.state.crossIconOpacity, {
-      toValue: 1,
-      delay: 200,
-      duration: 500
-    }).start(() => {
+    Animated.timing(this.crossIconOpacity, getConfig(1, 200, 500)).start(() => {
       this.onDislike()
     })
   }
 
   onLike = () => {
-    Animated.timing(this.state.viewOpacity, {
-      toValue: 0,
-      delay: 300,
-      duration: 500
-    }).start(() => {
+    Animated.timing(this.viewOpacity, getConfig(0, 300, 500)).start(() => {
       this.props.onLike()
     })
   }
 
   onDislike = () => {
-    Animated.timing(this.state.viewOpacity, {
-      toValue: 0,
-      delay: 300,
-      duration: 500
-    }).start(() => {
+    Animated.timing(this.viewOpacity, getConfig(0, 200, 500)).start(() => {
       this.props.onDislike()
     })
   }
@@ -59,7 +48,7 @@ class Card extends Component {
     return (
       <Animated.View
         key={info.name}
-        style={[styles.container, { opacity: this.state.viewOpacity }]}
+        style={[styles.container, { opacity: this.viewOpacity }]}
       >
         <TapableImages images={photos} />
         <LinearGradient
@@ -108,12 +97,12 @@ class Card extends Component {
           />
         </View>
         <Animated.View
-          style={[styles.bigIconView, { opacity: this.state.heartIconOpacity }]}
+          style={[styles.bigIconView, { opacity: this.heartIconOpacity }]}
         >
           <Ionicons name="ios-heart" size={100} color={Colors.snow} />
         </Animated.View>
         <Animated.View
-          style={[styles.bigIconView, { opacity: this.state.crossIconOpacity }]}
+          style={[styles.bigIconView, { opacity: this.crossIconOpacity }]}
         >
           <Entypo
             name="cross"

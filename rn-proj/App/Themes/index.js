@@ -1,4 +1,4 @@
 import Colors from './Colors'
-import Metrics from './Metrics'
+import Metrics, { isIphoneX } from './Metrics'
 import Assets from './Assets'
-export { Colors, Metrics, Assets }
+export { Colors, Metrics, Assets, isIphoneX }

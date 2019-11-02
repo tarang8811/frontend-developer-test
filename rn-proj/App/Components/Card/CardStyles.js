@@ -6,7 +6,7 @@ const { height } = Dimensions.get('window')
 
 const styles = StyleSheet.create({
   container: {
-    height: (7 * height) / 10,
+    height: (3 * height) / 4,
     borderRadius: 12,
     backgroundColor: Colors.snow,
     elevation: 3,
@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
   },
   aboutView: {
     alignItems: 'center',
-    height: height / 20
+    height: (35 * height) / 100 - 180,
+    overflow: 'hidden'
   },
   aboutText: {
     paddingHorizontal: 16,
@@ -61,7 +62,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     justifyContent: 'center',
-    height: height / 10
+    bottom: 10,
+    height: 80,
+    position: 'absolute',
+    width: '100%'
   },
   info: {
     height: 60,

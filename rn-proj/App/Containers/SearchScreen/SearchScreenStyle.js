@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 import { Colors } from '@Themes/'
 
 export default StyleSheet.create({
@@ -12,7 +12,12 @@ export default StyleSheet.create({
   },
   buttonView: {
     justifyContent: 'space-between',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    ...Platform.select({
+      android: {
+        marginTop: 30
+      }
+    })
   },
   locationButtonText: {
     color: Colors.snow
@@ -21,8 +26,8 @@ export default StyleSheet.create({
     width: 100,
     height: 34,
     borderWidth: 0,
-    marginHorizontal: 16,
-    marginTop: 20
+    marginHorizontal: 16
+    // marginTop: 20
   },
   filterButtonText: {
     color: Colors.snow
@@ -30,8 +35,7 @@ export default StyleSheet.create({
   tabStyle: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 20
+    justifyContent: 'center'
   },
   gradientStyle: {
     borderRadius: 17

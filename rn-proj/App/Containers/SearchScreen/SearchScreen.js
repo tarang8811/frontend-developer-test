@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import {
-  StyleSheet,
-  Text,
   View,
-  Dimensions,
   SafeAreaView,
-  LayoutAnimation
+  LayoutAnimation,
+  UIManager,
+  Platform
 } from 'react-native'
 import I18n from '@I18n'
 import { connect } from 'react-redux'
@@ -16,11 +15,13 @@ import styles from './SearchScreenStyle'
 import Button from '@Components/Button/Button'
 import Card from '@Components/Card'
 import UserInfoScreen from '@Containers/UserInfoScreen'
-import { Colors } from '@Themes'
+import { Colors, Metrics } from '@Themes'
 
-const { width } = Dimensions.get('window')
-
-const PANEL_WIDTH = width - 56
+if (Platform.OS === 'android') {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true)
+  }
+}
 
 class SearchScreen extends Component {
   state = { userData: [], visible: false, currentUser: null }
@@ -57,11 +58,18 @@ class SearchScreen extends Component {
     })
   }
 
-  removeAndUpdateAnimation = (user, index) => {
-    this.activePanel = index
+  removeAndUpdateAnimation = index => {
+    if (index < this.state.userData.length - 1) {
+      this.activePanel = index
+    } else {
+      this.activePanel = index - 1
+    }
+
     this.setState(
       {
-        userData: this.state.userData.filter(d => d.id !== user.id)
+        // have to use index instead of id since the backend is sending duplicate
+        // ids for same type of data which is causing issues which swipe
+        userData: this.state.userData.filter((_, i) => i !== index)
       },
       () => {
         var CustomLayoutSpring = {
@@ -81,12 +89,12 @@ class SearchScreen extends Component {
     )
   }
 
-  onLike = (user, index) => () => {
-    this.removeAndUpdateAnimation(user, index)
+  onLike = index => () => {
+    this.removeAndUpdateAnimation(index)
   }
 
-  onDislike = (user, index) => () => {
-    this.removeAndUpdateAnimation(user, index)
+  onDislike = index => () => {
+    this.removeAndUpdateAnimation(index)
   }
 
   onInfo = user => () => {
@@ -135,7 +143,7 @@ class SearchScreen extends Component {
         </View>
         <AnimatedTabs
           panelStyle={styles.mainContainer}
-          panelWidth={PANEL_WIDTH}
+          panelWidth={Metrics.panelWidth}
           style={styles.tabStyle}
           activePanel={this.activePanel}
           onAnimate={this.onAnimate}
@@ -146,8 +154,8 @@ class SearchScreen extends Component {
               ref={ref => (this.cardsRef[user.id] = ref)}
               key={user.id}
               {...user}
-              onLike={this.onLike(user, index)}
-              onDislike={this.onDislike(user, index)}
+              onLike={this.onLike(index)}
+              onDislike={this.onDislike(index)}
               onInfo={this.onInfo(user)}
             />
           ))}

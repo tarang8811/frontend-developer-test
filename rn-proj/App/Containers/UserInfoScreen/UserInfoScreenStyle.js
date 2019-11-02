@@ -49,12 +49,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     justifyContent: 'center',
-    bottom: 40
+    bottom: 10
   },
   info: {
-    height: 60,
-    width: 60,
-    borderRadius: 30
+    height: 44,
+    width: 44,
+    borderRadius: 22
   },
   bigIconView: {
     height: 200,

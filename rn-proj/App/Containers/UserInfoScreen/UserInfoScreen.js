@@ -2,7 +2,7 @@ import React from 'React'
 import { Text, View, SafeAreaView, ScrollView } from 'react-native'
 import IconButton from '@Components/Button/IconButton'
 import ScrollableImages from '@Components/ScrollableImages'
-import { Colors } from '@Themes'
+import { Colors, isIphoneX } from '@Themes'
 import styles from './UserInfoScreenStyle'
 import Modal from '@Components/Modal'
 import GradientText from '@Components/GradientText'
@@ -60,7 +60,10 @@ const UserInfoScreen = ({
             <TagsView header={I18n.t('interests')} data={info.interests} />
           </View>
         </ScrollView>
-        <View style={styles.buttonView}>
+        <View
+          // special condition for iphoneX and above
+          style={[styles.buttonView, isIphoneX() ? { bottom: 40 } : {}]}
+        >
           <IconButton
             type="ent"
             name="cross"
@@ -74,7 +77,7 @@ const UserInfoScreen = ({
             name="chevron-down"
             onPress={closeModal}
             style={styles.info}
-            size={30}
+            size={22}
             color={Colors.yellow}
           />
           <IconButton
