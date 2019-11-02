@@ -53,5 +53,10 @@ export default StyleSheet.create({
     bottom: 0,
     right: 0,
     backgroundColor: Colors.whisper
+  },
+  logo: {
+    height: 50,
+    width: 50,
+    borderRadius: 25
   }
 })

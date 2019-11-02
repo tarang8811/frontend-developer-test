@@ -4,6 +4,7 @@ import Main from './App/Containers/Main'
 import * as Font from 'expo-font'
 import { Entypo, Ionicons } from '@expo/vector-icons'
 import { Asset } from 'expo-asset'
+import { Assets } from '@Themes'
 
 class App extends PureComponent {
   state = {
@@ -18,7 +19,7 @@ class App extends PureComponent {
     /* eslint-disable global-require */
     const fontAssets = this.cacheFonts([Entypo.font, Ionicons.font])
     return Promise.all([
-      Asset.fromModule(require('./assets/feeld-logo.png')).downloadAsync(),
+      Asset.fromModule(Assets.logo).downloadAsync(),
       fontAssets
     ])
   }

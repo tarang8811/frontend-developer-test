@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Image, View, Animated } from 'react-native'
+import { Image, View } from 'react-native'
 import { connect } from 'react-redux'
 import RippleEffect from './RippleEffect'
 import styles from './style'
-import { Colors } from '@Themes/'
+import { Assets } from '@Themes/'
 
 class AppLoader extends Component {
   render() {
@@ -12,10 +12,7 @@ class AppLoader extends Component {
       <View style={[styles.gradientContainer]}>
         <RippleEffect />
         <View style={styles.logoContainer}>
-          <Image
-            source={require('../../../assets/feeld-logo.png')}
-            style={{ height: 50, width: 50, borderRadius: 25 }}
-          />
+          <Image source={Assets.logo} style={styles.logo} />
         </View>
       </View>
     )
