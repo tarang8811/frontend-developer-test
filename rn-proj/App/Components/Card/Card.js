@@ -1,5 +1,5 @@
 import React, { Component } from 'React'
-import { Image, Text, TouchableOpacity, View, Animated } from 'react-native'
+import { Text, View, Animated } from 'react-native'
 import IconButton from '@Components/Button/IconButton'
 import styles from './CardStyles'
 import TapableImages from '@Components/TapableImages'

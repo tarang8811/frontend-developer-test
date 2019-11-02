@@ -1,7 +1,12 @@
 {
-"search": "I will search this",
-"chatScreen": "Welcome to chat screen",
-"premiumScreen": "Welcome to premium screen",
-"settingsScreen": "Welcome to setting screen",
-"networkError": "There was an error fetching the data. Please try again"
+  "search": "I will search this",
+  "chatScreen": "Welcome to chat screen",
+  "infoScreen": "Welcome to info screen",
+  "settingsScreen": "Welcome to setting screen",
+  "networkError": "There was an error fetching the data. Please try again",
+  "location": "Location",
+  "filters": "Filters",
+  "aboutMe": "About Me",
+  "desires": "Desires",
+  "interests": "Interests"
 }

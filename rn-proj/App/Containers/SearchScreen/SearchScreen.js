@@ -14,8 +14,8 @@ import AnimatedTabs from 'react-native-animated-tabs'
 
 import styles from './SearchScreenStyle'
 import Button from '@Components/Button/Button'
-import Card from './Card'
-import UserInfoScreen from './UserInfoScreen'
+import Card from '@Components/Card'
+import UserInfoScreen from '@Containers/UserInfoScreen'
 import { Colors } from '@Themes'
 
 const { width } = Dimensions.get('window')
@@ -117,7 +117,7 @@ class SearchScreen extends Component {
       <SafeAreaView style={styles.flex}>
         <View style={styles.buttonView}>
           <Button
-            text={'Location'}
+            text={I18n.t('location')}
             onPress={() => {}}
             style={styles.button}
             gradientStyle={styles.gradientStyle}
@@ -125,7 +125,7 @@ class SearchScreen extends Component {
             textStyle={styles.locationButtonText}
           />
           <Button
-            text={'Filters'}
+            text={I18n.t('filters')}
             onPress={() => {}}
             style={styles.button}
             gradientStyle={styles.gradientStyle}

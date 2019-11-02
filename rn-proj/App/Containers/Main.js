@@ -7,7 +7,7 @@ import createStore from '@Redux'
 const { store } = createStore()
 
 class Main extends Component {
-  render () {
+  render() {
     return (
       <Provider store={store}>
         <RootContainer />

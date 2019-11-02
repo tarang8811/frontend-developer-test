@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   track: {
-    backgroundColor: '#ccc',
+    backgroundColor: Colors.carouselTrack,
     overflow: 'hidden',
     height: 2,
     zIndex: 14
