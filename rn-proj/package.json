@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
   },
   "dependencies": {
     "apisauce": "^1.1.1",
@@ -29,12 +30,21 @@
     "react-navigation-tabs": "^2.5.6",
     "react-redux": "^7.1.1",
     "redux-saga": "^1.1.1",
+    "redux-saga-test-plan": "^4.0.0-rc.3",
     "reduxsauce": "^1.1.1",
     "reselect": "^4.0.0",
     "seamless-immutable": "^7.1.4"
   },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base)"
+    ]
+  },
   "devDependencies": {
-    "babel-preset-expo": "^7.1.0"
+    "babel-preset-expo": "^7.1.0",
+    "jest-expo": "^35.0.0",
+    "react-test-renderer": "16.8.3"
   },
   "private": true
 }

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { AppLoading } from 'expo'
-import Main from './App/Containers/Main'
+import Main from '@Containers/Main'
 import * as Font from 'expo-font'
 import { Entypo, Ionicons } from '@expo/vector-icons'
 import { Asset } from 'expo-asset'
@@ -36,8 +36,9 @@ class App extends PureComponent {
 
   render() {
     const { isLoadingComplete } = this.state
+    const { skipTest } = this.props // required so that app loading is not called when running tests
 
-    if (!isLoadingComplete) {
+    if (!isLoadingComplete && !skipTest) {
       return (
         <AppLoading
           startAsync={this.loadResourcesAsync}
