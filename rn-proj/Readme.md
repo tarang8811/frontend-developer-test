@@ -13,13 +13,13 @@
 Here is a brief of the libraries used and the thought process being using them.
 
 - Libraries
-  - react-redux - One of the best state management libraries for large application and use by feeld as well
-  - redux-sagas - Makes it very easy to handle impure parts of the application and also test
-  - react-native-animated-tabs - Swiper library for cards view
-  - redux-sauce - A wrapper for reducers and actions. Reduces one boiler plate for action and reducers where we can use redux-sauce to combine both
-  - api-sauce - Library to hit server api
-  - seamless-immutable - Create immutable data for the project for better state management
-  - react-saga-test-plan - An easy and simple to use testing library for sagas
+  - `react-redux` - One of the best state management libraries for large application and use by feeld as well
+  - `redux-sagas` - Makes it very easy to handle impure parts of the application and also test
+  - `react-native-animated-tabs` - Swiper library for cards view
+  - `redux-sauce` - A wrapper for reducers and actions. Reduces one boiler plate for action and reducers where we can use redux-sauce to combine both
+  - `api-sauce` - Library to hit server api
+  - `seamless-immutable` - Create immutable data for the project for better state management
+  - `react-saga-test-plan` - An easy and simple to use testing library for sagas
 
 Also for linting i prefer prettier but it is not injected in the project. Since linting is something that is variable for different developer i like to use my own style and have a team discussion to come to a style guide for the project. Since we used expo we also had some limitation around not being able to use some of the libraries like `react-native-fast-image`.
 
@@ -27,7 +27,7 @@ Also i prefer making modules out of each diretory hence you would find `packaage
 
 ## Architecture
 
-I went forward building this application considering it would eventually evolve into a big project hence the structure has been divided into different boilerplates. I have used [Redux](https://redux.js.org/) for state management. [Sagas](http://redux-saga.js.org) for the impure parts of the application. [React-Navigation](https://reactnavigation.org/) for navigation and I18n for localisation. The files and folders are structured in the following format.
+I went forward building this application considering it would eventually evolve into a big project hence the structure has been divided into different boilerplates. I have used [Redux](https://redux.js.org/) for state management. [Sagas](http://redux-saga.js.org) for the impure parts of the application. [React-Navigation](https://reactnavigation.org/) for navigation and [I18n](https://github.com/fnando/i18n-js) for localisation. The files and folders are structured in the following format.
 
 ```
 rn-proj
@@ -100,15 +100,15 @@ I also have a filter and location icon. Although they are not working but it's i
 
 The challenge is very nicely portayed and it is very simple to understand but there are few suggestions for the product, challenge and the api
 
-###Challenge
+### Challenge
 
 I would suggest if we could revisit the constraint of expo. Although it provides and easy way to test the project it is harder for developers to showcase the potential and use different libraries. Also there is a missing part in the application where `associated` is not cleary defined. Associated is something that was new to me and i implemented as per my thought process but it would be good if you could explain how it could be implemented or what it means for feeld
 
-###Api
+### Api
 
 The api is fast and consistent but the only issue is that it is sending similar objects and in that the id's are same too. I had a problem with this since i was using the id's to remove the users that have been liked/disliked. It's fine to use the same objects but i would suggest if the backend could at least send different id's for the objects so that there are actually 20 different user profiles
 
-###Product
+### Product
 
 The product of feeld is very simple and elegant but there are two things as a user i would say could improve the application.
 
