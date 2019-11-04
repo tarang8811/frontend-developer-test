@@ -44,7 +44,7 @@ class Card extends Component {
   }
 
   render() {
-    const { info, photos } = this.props
+    const { info, photos, associated } = this.props
     return (
       <Animated.View
         key={info.name}
@@ -65,7 +65,11 @@ class Card extends Component {
           <Text style={styles.sexualityText}>{info.sexuality}</Text>
         </LinearGradient>
         <View style={styles.nameView}>
-          <Text style={styles.nameText}>{`${info.name}, ${info.age}`}</Text>
+          <Text style={styles.nameText}>
+            {!!associated
+              ? `${info.name}, ${info.age} & ${associated.name}, ${associated.age}`
+              : `${info.name}, ${info.age}`}
+          </Text>
         </View>
         <View style={styles.aboutView}>
           <Text style={styles.aboutText}>{info.about}</Text>

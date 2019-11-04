@@ -1,17 +1,7 @@
 import React, { Component } from 'react'
 import { View, Animated, Easing, StyleSheet } from 'react-native'
 import styles from './style'
-
-const END_SIZE = 15
-const TIME_PER_SIZE = 300
-
-const RIPPLES = {
-  size1: 1.5,
-  size2: 3.5,
-  size3: 5,
-  size4: 8.5,
-  size5: 12
-}
+import { Metrics } from '@Themes'
 
 const getConfig = (toValue, duration) => ({
   toValue,
@@ -22,8 +12,9 @@ const getConfig = (toValue, duration) => ({
 
 class RippleEffect extends Component {
   state = {
-    ...Object.keys(RIPPLES).reduce(
-      (r, key) => Object.assign(r, { [key]: new Animated.Value(RIPPLES[key]) }),
+    ...Object.keys(Metrics.ripples).reduce(
+      (r, key) =>
+        Object.assign(r, { [key]: new Animated.Value(Metrics.ripples[key]) }),
       {}
     )
   }
@@ -32,11 +23,14 @@ class RippleEffect extends Component {
     const reset = Animated.timing(this.state[key], getConfig(0.1, 1))
     const anim1 = Animated.timing(
       this.state[key],
-      getConfig(END_SIZE, (END_SIZE - startingValue) * TIME_PER_SIZE)
+      getConfig(
+        Metrics.ripple_end_size,
+        (Metrics.ripple_end_size - startingValue) * Metrics.ripple_time_per_size
+      )
     )
     const anim2 = Animated.timing(
       this.state[key],
-      getConfig(startingValue, startingValue * TIME_PER_SIZE)
+      getConfig(startingValue, startingValue * Metrics.ripple_time_per_size)
     )
 
     // Animation is done in squence from
@@ -47,8 +41,8 @@ class RippleEffect extends Component {
   }
 
   componentDidMount() {
-    const ripples = Object.keys(RIPPLES).map(k =>
-      this.animateRipple(RIPPLES[k], k)
+    const ripples = Object.keys(Metrics.ripples).map(k =>
+      this.animateRipple(Metrics.ripples[k], k)
     )
     const parallel = Animated.parallel(ripples)
     Animated.loop(parallel).start()
@@ -69,7 +63,7 @@ class RippleEffect extends Component {
   render() {
     return (
       <View style={StyleSheet.absoluteFill}>
-        {Object.keys(RIPPLES).map(k => this.renderRipple(k))}
+        {Object.keys(Metrics.ripples).map(k => this.renderRipple(k))}
       </View>
     )
   }

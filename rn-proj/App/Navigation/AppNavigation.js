@@ -43,8 +43,6 @@ const TabNavigator = createBottomTabNavigator(
   },
   {
     defaultNavigationOptions: getNavigationOptions,
-    // Put tab bar on bottom of screen on both platforms
-    // tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     // Disable animation so that iOS/Android have same behaviors
     animationEnabled: false,

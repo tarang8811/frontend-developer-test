@@ -34,6 +34,7 @@ const TagsView = ({ header, data }) => {
 const UserInfoScreen = ({
   info,
   photos,
+  associated,
   visible,
   animateDislike,
   closeModal,
@@ -50,7 +51,11 @@ const UserInfoScreen = ({
           <ScrollableImages images={photos} />
           <View styles={styles.infoView}>
             <View style={styles.nameView}>
-              <Text style={styles.nameText}>{`${info.name}, ${info.age}`}</Text>
+              <Text style={styles.nameText}>
+                {!!associated
+                  ? `${info.name}, ${info.age} & ${associated.name}, ${associated.age}`
+                  : `${info.name}, ${info.age}`}
+              </Text>
             </View>
             <View style={styles.aboutView}>
               <Text style={styles.aboutViewHeader}>{I18n.t('aboutMe')}</Text>

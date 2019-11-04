@@ -33,12 +33,12 @@ class SearchScreen extends Component {
     this.props.getUsers()
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     if (
-      nextProps.userData !== this.props.userData &&
-      nextProps.userData.length
+      prevProps.userData !== this.props.userData &&
+      this.props.userData.length
     ) {
-      this.setState({ userData: nextProps.userData })
+      this.setState({ userData: this.props.userData })
     }
   }
 

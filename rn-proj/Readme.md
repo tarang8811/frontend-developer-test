@@ -20,10 +20,13 @@ Here is a brief of the libraries used and the thought process being using them.
   - `api-sauce` - Library to hit server api
   - `seamless-immutable` - Create immutable data for the project for better state management
   - `react-saga-test-plan` - An easy and simple to use testing library for sagas
+  - `ramda` - A very good library that provides several functions to change immutable data as well as a strong compose and pipe function using which we can create powerful methods to transform data
+
+I chose to stick with js and not use typescript since this application that i created was mostly component heavy and not data heavy hence i used `Prop-types` to keep the safeguarding and it suffices for this application. Although any application that has a good amount of data being mutated or transferred will require typescript for better development
 
 Also for linting i prefer prettier but it is not injected in the project. Since linting is something that is variable for different developer i like to use my own style and have a team discussion to come to a style guide for the project. Since we used expo we also had some limitation around not being able to use some of the libraries like `react-native-fast-image`.
 
-Also i prefer making modules out of each diretory hence you would find `packaage.json` in each directory. It makes it very clean and easy to import different files
+Also i prefer making modules out of each diretory hence you would find `package.json` in each directory. It makes it very clean and easy to import different files
 
 ## Architecture
 

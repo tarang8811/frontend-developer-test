@@ -7,6 +7,7 @@ export function* getUsers(api) {
   yield put(UIActions.onToggleLoader(true))
   const resp = yield call(api.getUsers)
   if (resp.ok) {
+    console.log(resp.data.data.map(d => d.associated))
     yield put(UserActions.usersRequestSuccess(resp.data.data))
     // show animation for a bit longer
     yield delay(300)

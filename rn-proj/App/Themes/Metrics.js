@@ -10,7 +10,16 @@ const metrics = {
   screenHeight: screenHeight,
   fixedBarWidth: 280,
   barSpace: 10,
-  panelWidth: width - 56
+  panelWidth: width - 56,
+  ripple_end_size: 15,
+  ripple_time_per_size: 300,
+  ripples: {
+    size1: 1.5,
+    size2: 3.5,
+    size3: 5,
+    size4: 8.5,
+    size5: 12
+  }
 }
 
 export const isIphoneX = () => {
